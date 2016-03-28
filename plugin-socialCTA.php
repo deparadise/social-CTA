@@ -30,12 +30,18 @@ License: GPLv2
 		}
 
 		function form( $instance ) {
-			$defaults = array(
-				'SM_service' => 'Choose a service'
-			);
-			$service = $instance['SM_service'];
+			// $defaults = array(
+			// 	'SM_service' => 'Choose a service'
+			// );
 
-			// Widget form markup ?>
+			// - Assign instance values to call vars
+			$service = $instance['SM_service'];
+			// - Assignment example from WP.org
+			//$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
+
+			// - Widget form markup below
+			// - Use value or placeholder for incoming data models
+			?>
 			<p>
 				<label for="<?php echo $this->get_field_id( 'SM_service' ); ?>">Type of Social Media account</label>
 				<input 
@@ -50,7 +56,13 @@ License: GPLv2
 			<?php
 		}
 
-		function update( $new_instance, $old_instance ) {       
+		function update( $new_instance, $old_instance ) {
+			// - Pull old model
+			$instance = $old_instance;
+			// - Apply incoming new model
+			$instance['SM_service'] = strip_tags( $new_instance['SM_service'] );
+			// - saves to WP db instance
+			return $instance;
 		}
 
 		function widget( $args, $instance ) {
