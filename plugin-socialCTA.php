@@ -63,7 +63,7 @@ License: GPLv2
 			<?php // END TESTING?>
 
 			<p>
-				<label for="<?php echo $this->get_field_id( 'SM_service' ); ?>">Add a service</label>
+				<label for="<?php echo $this->get_field_id( 'add_service' ); ?>">Add a service URL</label>
 				<input 
 					class=""
 					type="text"
@@ -72,7 +72,6 @@ License: GPLv2
 					placeholder="Add a service"
 					value=""
 				>
-				
 			</p>
 			
 			<?php
