@@ -7,20 +7,29 @@ Author URI: http://www.deparadise.com
 License: GPLv2
 */
 
-class socialCTA extends WP_Widget {
-     
-    function __construct() {
-    }
-     
-    function form( $instance ) {
-    }
-     
-    function update( $new_instance, $old_instance ) {       
-    }
-     
-    function widget( $args, $instance ) {
-         
-    }
-     
-}
+	class socialCTA extends WP_Widget {
+	     
+	    function __construct() {
+	    }
+	     
+	    function form( $instance ) {
+	    }
+	     
+	    function update( $new_instance, $old_instance ) {       
+	    }
+	     
+	    function widget( $args, $instance ) {
+	         
+	    }
+	     
+	}
+
+	function register_socialCTA() {
+	 
+	    register_widget( 'socialCTA' );
+	 
+	}
+
+	add_action( 'widgets_init', 'register_socialCTA' );
+
 ?> <!-- END socialCTA plugin -->
