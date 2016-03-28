@@ -30,6 +30,24 @@ License: GPLv2
 		}
 
 		function form( $instance ) {
+			$defaults = array(
+				'SM_service' => 'Choose a service'
+			);
+			$service = $instance['SM_service'];
+
+			// Widget form markup ?>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'SM_service' ); ?>">Type of Social Media account</label>
+				<input 
+					class=""
+					type="text"
+					id="<?php echo $this->get_field_id( 'SM_service' ); ?>"
+					name="<?php echo $this->get_field_name( 'SM_service' ); ?>"
+					value="<?php echo esc_attr( $service ); ?>"
+				>
+			</p>
+
+			<?php
 		}
 
 		function update( $new_instance, $old_instance ) {       
