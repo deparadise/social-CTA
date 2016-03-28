@@ -33,35 +33,72 @@ License: GPLv2
 			// $defaults = array(
 			// 	'SM_service' => 'Choose a service'
 			// );
+			// $instance['service_selection'] = array();
+			// $instance['service_selection'] = array(
+			// 	'Facebook',
+			// 	'Twitter',
+			// 	'Instagram'
+			// );
 
 			// - Assign instance values to call vars
-			$service = $instance['SM_service'];
+			$services = $instance['service_selection'];
 			// - Assignment example from WP.org
 			//$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
 
-			// - Widget form markup below
+		/// - Widget form markup below
 			// - Use value or placeholder for incoming data models
+			// TESTING
 			?>
+			$instance:<br/>
+			<?php print_r($instance)?>
+			<ul>
+				<!-- <li>test</li> -->
+				<?php 
+				foreach($services as $service) {
+				//foreach($instance as $v) {
+					echo '<li>' . $service . '</li>';
+				}?>
+			</ul>
+
+			<?php // END TESTING?>
+
 			<p>
-				<label for="<?php echo $this->get_field_id( 'SM_service' ); ?>">Type of Social Media account</label>
+				<label for="<?php echo $this->get_field_id( 'SM_service' ); ?>">Add a service</label>
 				<input 
 					class=""
 					type="text"
-					id="<?php echo $this->get_field_id( 'SM_service' ); ?>"
-					name="<?php echo $this->get_field_name( 'SM_service' ); ?>"
-					value="<?php echo esc_attr( $service ); ?>"
+					id="<?php echo $this->get_field_id( 'add_service' ); ?>"
+					name="<?php echo $this->get_field_name( 'add_service' ); ?>"
+					placeholder="Add a service"
+					value=""
 				>
+				
 			</p>
-
+			
 			<?php
 		}
 
 		function update( $new_instance, $old_instance ) {
-			// - Pull old model
+		// - Pull old model to apply changes
 			$instance = $old_instance;
-			// - Apply incoming new model
-			$instance['SM_service'] = strip_tags( $new_instance['SM_service'] );
-			// - saves to WP db instance
+		// - Apply from incoming new model to old
+
+			// Service Collection
+
+			// Test for no array and init when true
+			$checkServSelection = $instance['service_selection'];
+			if (empty($checkServSelection)) {
+				$instance['service_selection'] = array();
+			}
+			// start new arr and apply exsisting arr
+			$servicesArr = array();
+			$servicesArr = array_merge($servicesArr, $instance['service_selection']);
+			// Add new entry to collection
+			array_push($servicesArr, $new_instance['add_service']);
+			// Re-assign to key
+			$instance['service_selection'] = $servicesArr;
+
+		// - saves to WP db instance
 			return $instance;
 		}
 
