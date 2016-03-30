@@ -61,6 +61,18 @@ License: GPLv2
 			</ul>
 
 			<?php // END TESTING?>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'service_select' ); ?>">
+					Select Service:
+				</label>
+				<select
+					id="<?php echo $this->get_field_id( 'service_select' ); ?>"
+				>
+					<?php foreach($serviceSelection as $serviceOption) {
+						echo '<option value="' . $serviceOption . '">' . $serviceOption . '</option>';
+					}?>
+				</select>
+			</p>
 
 			<p>
 				<label for="<?php echo $this->get_field_id( 'add_service' ); ?>">Add a service URL</label>
