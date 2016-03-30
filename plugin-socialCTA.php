@@ -96,20 +96,26 @@ License: GPLv2
 			$instance = $old_instance;
 		// - Apply from incoming new model to old
 
-			// Service Collection
-
-			// Test for no array and init when true
-			$checkServSelection = $instance['service_selection'];
+			// Service Collection: Test for no array and init when true
+			$checkServSelection = $instance['service_collection'];
 			if (empty($checkServSelection)) {
-				$instance['service_selection'] = array();
+				$instance['service_collection'] = array();
 			}
 			// start new arr and apply exsisting arr
 			$servicesArr = array();
-			$servicesArr = array_merge($servicesArr, $instance['service_selection']);
+			$servicesArr = array_merge($servicesArr, $instance['service_collection']);
+			
+			// Collect for new service group
+			$newServiceGroup = array(
+				'service' => 'asdf',
+				'service_url' => $new_instance['service_url']
+			);
+
 			// Add new entry to collection
-			array_push($servicesArr, $new_instance['add_service']);
+			array_push($servicesArr, $newServiceGroup);
+			
 			// Re-assign to key
-			$instance['service_selection'] = $servicesArr;
+			$instance['service_collection'] = $servicesArr;
 
 		// - saves to WP db instance
 			return $instance;
