@@ -55,10 +55,8 @@ License: GPLv2
 			<?php print_r($instance)?>
 			<ul>
 				<!-- <li>test</li> -->
-				<?php 
-				foreach($services as $service) {
-				//foreach($instance as $v) {
-					echo '<li>' . $service . '</li>';
+				<?php foreach($serviceCollection as $group) {
+					echo '<li><span>' . $group['service'] . '</span><br><span>' . $group['service_url'] . '</span></li>';
 				}?>
 			</ul>
 
