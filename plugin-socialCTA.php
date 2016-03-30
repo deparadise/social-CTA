@@ -75,12 +75,14 @@ License: GPLv2
 			</p>
 
 			<p>
-				<label for="<?php echo $this->get_field_id( 'add_service' ); ?>">Add a service URL</label>
+				<label for="<?php echo $this->get_field_id( 'service_url' ); ?>">
+					What is the service page URL:
+				</label>
 				<input 
 					class=""
 					type="text"
-					id="<?php echo $this->get_field_id( 'add_service' ); ?>"
-					name="<?php echo $this->get_field_name( 'add_service' ); ?>"
+					id="<?php echo $this->get_field_id( 'service_url' ); ?>"
+					name="<?php echo $this->get_field_name( 'service_url' ); ?>"
 					placeholder="Add a service"
 					value=""
 				>
