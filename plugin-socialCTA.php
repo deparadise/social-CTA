@@ -33,15 +33,17 @@ License: GPLv2
 			// $defaults = array(
 			// 	'SM_service' => 'Choose a service'
 			// );
-			// $instance['service_selection'] = array();
-			// $instance['service_selection'] = array(
-			// 	'Facebook',
-			// 	'Twitter',
-			// 	'Instagram'
-			// );
 
 			// - Assign instance values to call vars
-			$services = $instance['service_selection'];
+			$serviceSelection = array(
+				'Facebook',
+				'Twitter',
+				'Instagram'
+			);
+
+			$serviceCollection = $instance['service_collection'];
+			
+			//$services = $instance['service_collection'];
 			// - Assignment example from WP.org
 			//$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
 
