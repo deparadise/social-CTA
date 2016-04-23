@@ -1,0 +1,17 @@
+$socialCTA_model = array(
+	'service_selection' => array(
+		'Facebook',
+		'Twitter',
+		'Instagram'
+	),
+	'service_count' => array(
+		array(
+			'service' => 'FB',
+			'serviceURL' => 'www...'
+		),
+		array(
+			'service' => 'Tw',
+			'serviceURL' => 'www...'
+		)
+	)
+)
