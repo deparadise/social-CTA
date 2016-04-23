@@ -97,25 +97,28 @@ License: GPLv2
 			$instance = $old_instance;
 		// - Apply from incoming new model to old
 
-			// Service Collection: Test for no array and init when true
-			if (empty($instance['service_collection'])) {
-				// start new arr
-				$instance['service_collection'] = array();
-			}
+			// If there is no URL provided do not add to the collection
+			if ($new_instance['service_url'] !== '') {
+				// Service Collection: Test for no array and init when true
+				if (empty($instance['service_collection'])) {
+					// start new arr
+					$instance['service_collection'] = array();
+				}
 
-			// Collect for new service group
-			$newServiceGroup = array(
-				'service' => $new_instance['service_select'],
-				'service_url' => $new_instance['service_url']
-			);
+				// Collect for new service group
+				$newServiceGroup = array(
+					'service' => $new_instance['service_select'],
+					'service_url' => $new_instance['service_url']
+				);
 
-			// Add new entry to collection
-			$serviceCount = count($instance['service_collection']);
-			$instance['service_collection'][] = $newServiceGroup;
+				// Add new entry to collection
+				$serviceCount = count($instance['service_collection']);
+				$instance['service_collection'][] = $newServiceGroup;
 
-			// Remove init_empty record if present
-			if ($serviceCount == 1 && $instance['service_collection'][0]['service_url'] == "") {
-				array_shift($instance['service_collection']);
+				// Remove init_empty record if present
+				if ($serviceCount == 1 && $instance['service_collection'][0]['service_url'] == "") {
+					array_shift($instance['service_collection']);
+				}
 			}
 
 		// - saves to WP db instance
