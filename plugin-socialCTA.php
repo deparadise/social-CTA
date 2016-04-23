@@ -67,6 +67,7 @@ License: GPLv2
 				</label>
 				<select
 					id="<?php echo $this->get_field_id( 'service_select' ); ?>"
+					name="<?php echo $this->get_field_name( 'service_select' ); ?>"
 				>
 					<?php foreach($serviceSelection as $serviceOption) {
 						echo '<option value="' . $serviceOption . '">' . $serviceOption . '</option>';
@@ -104,7 +105,7 @@ License: GPLv2
 
 			// Collect for new service group
 			$newServiceGroup = array(
-				'service' => 'asdf',
+				'service' => $new_instance['service_select'],
 				'service_url' => $new_instance['service_url']
 			);
 
