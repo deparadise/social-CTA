@@ -116,6 +116,7 @@ License: GPLv2
 					$instance['delete_requests'][] = substr($key, 13);
 				}
 			}
+			
 			// Reverse requests order for deletion request
 			$instance['delete_requests'] = array_reverse($instance['delete_requests']);
 
@@ -123,8 +124,6 @@ License: GPLv2
 			foreach ($instance['delete_requests'] as $position=>$request) {
 				array_splice($instance['service_collection'], $request, 1);
 			}
-
-
 
 			// If there is no URL provided do not add to the collection
 			if ($new_instance['service_url'] !== '') {
