@@ -111,13 +111,18 @@ License: GPLv2
 			// Search new_instance for delete requests
 			$instance['delete_requests'] = array();
 			foreach ($new_instance as $key=>$value) {
+				// check current key if it is a delete req.
 				if('delete_group_' == substr($key, 0, 13)) {
-					$instance['delete_requests'][] = $key;
+					$instance['delete_requests'][] = substr($key, 13);
 				}
 			}
+			// Reverse requests order for deletion request
+			$instance['delete_requests'] = array_reverse($instance['delete_requests']);
 
-			// !! HOORAH IT COLLECTS THE DELETE REQUESTS ^^^
-
+			// Delete from collection based delete_requests
+			foreach ($instance['delete_requests'] as $position=>$request) {
+				array_splice($instance['service_collection'], $request, 1);
+			}
 
 
 
