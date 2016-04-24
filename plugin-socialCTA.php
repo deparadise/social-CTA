@@ -55,9 +55,20 @@ License: GPLv2
 			<?php print_r($instance)?>
 			<ul>
 				<!-- <li>test</li> -->
-				<?php foreach($serviceCollection as $group) {
-					echo '<li><span>' . $group['service'] . '</span><br><span>' . $group['service_url'] . '</span></li>';
-				}?>
+				<?php foreach($serviceCollection as $index=>$group) { ?>
+					<li>
+						<span> <?php echo $group['service'] ?> </span><br>
+						<span> <?php echo $group['service_url'] ?> </span><br>
+						<span>
+							<label>Delete</label>
+							<input 
+								type="checkbox"
+								id="<?php echo $this->get_field_id( 'delete_group_' . $index ); ?>"
+								name="<?php echo $this->get_field_name( 'delete_group_' . $index  ); ?>"
+							>
+						</span>
+					</li>
+				<?php } ?>
 			</ul>
 
 			<?php // END TESTING?>
@@ -96,6 +107,19 @@ License: GPLv2
 		// - Pull old model to apply changes
 			$instance = $old_instance;
 		// - Apply from incoming new model to old
+
+			// Search new_instance for delete requests
+			$instance['delete_requests'] = array();
+			foreach ($new_instance as $key=>$value) {
+				if('delete_group_' == substr($key, 0, 13)) {
+					$instance['delete_requests'][] = $key;
+				}
+			}
+
+			// !! HOORAH IT COLLECTS THE DELETE REQUESTS ^^^
+
+
+
 
 			// If there is no URL provided do not add to the collection
 			if ($new_instance['service_url'] !== '') {
