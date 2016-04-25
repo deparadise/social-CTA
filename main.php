@@ -57,10 +57,10 @@ License: GPLv2
 				<!-- <li>test</li> -->
 				<?php foreach($serviceCollection as $index=>$group) { ?>
 					<li>
-						<span> <?php echo $group['service'] ?> </span><br>
+						<h3><?php echo array_search($group['service'], $instance['service_selection']) ?></h3>
 						<span> <?php echo $group['service_url'] ?> </span><br>
 						<span>
-							<label>Delete</label>
+							<label>Remove </label>
 							<input 
 								type="checkbox"
 								id="<?php echo $this->get_field_id( 'delete_group_' . $index ); ?>"
