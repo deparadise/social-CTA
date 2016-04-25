@@ -35,10 +35,10 @@ License: GPLv2
 			// );
 
 			// - Assign instance values to call vars
-			$serviceSelection = array(
-				'Facebook',
-				'Twitter',
-				'Instagram'
+			$instance['service_selection'] = array(
+				'Facebook' => 'social-facebook',
+				'Twitter' => 'social-twitter',
+				'Instagram' => 'social-instagram'
 			);
 
 			$serviceCollection = $instance['service_collection'];
