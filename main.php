@@ -80,8 +80,8 @@ License: GPLv2
 					id="<?php echo $this->get_field_id( 'service_select' ); ?>"
 					name="<?php echo $this->get_field_name( 'service_select' ); ?>"
 				>
-					<?php foreach($serviceSelection as $serviceOption) {
-						echo '<option value="' . $serviceOption . '">' . $serviceOption . '</option>';
+					<?php foreach($instance['service_selection'] as $key=>$foundationIconCall) {
+						echo '<option value="' . $foundationIconCall . '">' . $key . '</option>';
 					}?>
 				</select>
 			</p>
