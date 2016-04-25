@@ -95,7 +95,7 @@ License: GPLv2
 					type="text"
 					id="<?php echo $this->get_field_id( 'service_url' ); ?>"
 					name="<?php echo $this->get_field_name( 'service_url' ); ?>"
-					placeholder="Add a service"
+					placeholder="Add a service URL"
 					value=""
 				>
 			</p>
@@ -116,7 +116,7 @@ License: GPLv2
 					$instance['delete_requests'][] = substr($key, 13);
 				}
 			}
-			
+
 			// Reverse requests order for deletion request
 			$instance['delete_requests'] = array_reverse($instance['delete_requests']);
 
@@ -154,7 +154,33 @@ License: GPLv2
 		}
 
 		function widget( $args, $instance ) {
+			// Generate side setup
+			if (false) { // TEST: DISPLAY INCOMING WIDGET MODEL!
+			?>
+				<div class="dev-test-args">
+				<?php //print_r($args)?>
+				</div>
+				<div class="dev-test-instance">
+				<?php print_r($instance['service_collection'])?>
+				</div>
 
+			<?php } // end TEST ?>
+
+				<div class="social-CTA widget">
+					<h1 class="row"><a class="small-8 small-offset-2 columns" href="#">When's our next event?</a></h1>
+					<ul class="social-links row">
+						<?php
+							foreach ($instance['service_collection'] as $key=>$serviceDetails) {
+								echo "<li class=\"small-4 columns\"><a 
+								class=\"fi-" . $serviceDetails['service'] . "\"
+								href=\"" . $serviceDetails['service_url'] . "\"
+								target=\"_blank\"></a></li>";
+							}
+						?>
+						
+					</ul>
+				</div>
+			<?php
 		}
 
 	} // END socialCTA
