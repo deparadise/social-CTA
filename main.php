@@ -51,8 +51,8 @@ License: GPLv2
 			// - Use value or placeholder for incoming data models
 			// TESTING
 			?>
-			$instance:<br/>
-			<?php print_r($instance)?>
+			<!-- $instance:<br/> -->
+			<?php //print_r($instance)?>
 			<ul>
 				<!-- <li>test</li> -->
 				<?php foreach($serviceCollection as $index=>$group) { ?>
