@@ -181,7 +181,6 @@ License: GPLv2
 			<?php } // end TEST ?>
 
 				<aside class="social-CTA widget">
-					<h1 class="row"><a class="small-8 small-offset-2 columns" href="#">When's our next event?</a></h1>
 					<ul class="social-links row">
 						<?php
 							foreach ($instance['service_collection'] as $key=>$serviceDetails) {
