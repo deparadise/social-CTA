@@ -30,11 +30,7 @@ License: GPLv2
 		}
 
 		function form( $instance ) {
-			// $defaults = array(
-			// 	'SM_service' => 'Choose a service'
-			// );
-
-			// - Assign instance values to call vars
+			// - SERVICE SELECTION
 			$instance['service_selection'] = array(
 				'Facebook' => 'social-facebook',
 				'Twitter' => 'social-twitter',
@@ -42,24 +38,42 @@ License: GPLv2
 			);
 
 			$serviceCollection = $instance['service_collection'];
-			
-			//$services = $instance['service_collection'];
-			// - Assignment example from WP.org
-			//$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
 
-		/// - Widget form markup below
-			// - Use value or placeholder for incoming data models
 			// TESTING
+			if (false) {
+				?>
+				<!-- $instance:<br/> -->
+				<?php //print_r($instance)
+			}
 			?>
-			<!-- $instance:<br/> -->
-			<?php //print_r($instance)?>
-			<ul>
+			<style>
+				.service-collection {
+					/*border: 1px solid red;*/
+				}
+				.service-collection li h3 {
+					margin: 1em 0 .25em 0;
+				}
+				.service-remove {
+					position: relative;
+					margin: .25em 0 0 0;
+					display: block;
+				}
+				.service-remove input {
+					position: relative;
+					top: 3px;
+				}
+				.service-remove input[type=checkbox]:checked:before {
+					color: #FF7C7D;
+					/*border: 1px solid fuchsia;*/
+				}
+			</style>
+			<ul class="service-collection">
 				<!-- <li>test</li> -->
 				<?php foreach($serviceCollection as $index=>$group) { ?>
 					<li>
-						<h3><?php echo array_search($group['service'], $instance['service_selection']) ?></h3>
-						<span> <?php echo $group['service_url'] ?> </span><br>
-						<span>
+						<h3 class="service-label"><?php echo array_search($group['service'], $instance['service_selection']) ?></h3>
+						<span class="service-url"> <?php echo $group['service_url'] ?> </span><br>
+						<span class="service-remove">
 							<label>Remove </label>
 							<input 
 								type="checkbox"
