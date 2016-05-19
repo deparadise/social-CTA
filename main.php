@@ -5,6 +5,8 @@ Version: 0.1
 Author: David Pineda_DEParadise Creative
 Author URI: http://www.deparadise.com
 License: GPLv2
+
+Demo From: http://code.tutsplus.com/tutorials/introduction-to-creating-your-first-wordpress-widget--cms-22403
 */
 
 	class socialCTA extends WP_Widget {
